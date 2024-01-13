@@ -29,11 +29,11 @@ class HBNBCommand(cmd.Cmd):
                'State': State, 'Place': Place, 'Review': Review,
                'User': User, 'City': City}
 
-    def do_quit(self, arg) -> bool:
+    def quit(self, arg) -> bool:
         """Quit command to exit the program"""
         return True
 
-    def do_EOF(self, arg) -> bool:
+    def EOF(self, arg) -> bool:
         """EOF command to exit the program"""
         print()
         return True
@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         """ Do nothing when an empty line is entered """
         pass
 
-    def do_create(self, *arg):
+    def create(self, *arg):
         """creating an instance of BaseModel"""
         if arg:
             if arg in self.classes:
@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         return
 
-    def do_show(self, arg):
+    def show(self, arg):
         "string representation (class name and id)"
         if len(split(arg)) == 0:
             print("** class name missing **")
@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
         return
 
-    def do_destroy(self, arg):
+    def destroy(self, arg):
         """Deletes an instance based on the class name and id
             (save the change into the JSON file)"""
         if len(split(arg)) == 0:
@@ -91,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
-    def do_all(self, arg):
+    def all(self, arg):
         """Usage: all or all <class> or <class>.all()
         Display string representations of all instances of a given class.
         If no class is specified, displays all instantiated objects"""
@@ -115,7 +115,7 @@ class HBNBCommand(cmd.Cmd):
                     _list.append(__class)
             print(_list)
 
-    def do_update(self, arg):
+    def update(self, arg):
         """Updates an instance base on its id eg
         $ update Model id field value
         Throws errors for missing arguments"""
@@ -149,7 +149,7 @@ class HBNBCommand(cmd.Cmd):
         setattr(instance, split(arg)[2], split(arg)[3])
         models.storage.save()
 
-    def do_count(self, arg):
+    def count(self, arg):
         """getting the number of instances of a class"""
         instance_num = 0
         dic = models.storage.all()
