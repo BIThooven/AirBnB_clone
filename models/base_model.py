@@ -15,17 +15,14 @@ class BaseModel():
             and each value in this dictionary
             """
             for key, value in kwargs.items():
+                if key == "created_at":
+                    value = d.datetime.strptime(value,
+                                                '%Y-%m-%dT%H:%M:%S.%f')
+                if key == "updated_at":
+                    value = d.datetime.strptime(value,
+                                                '%Y-%m-%dT%H:%M:%S.%f')
                 if key != '__class__':
-                    setattr(self, key, value)
-            """converting strings into datetime objects
-            checking if key == created_at and if value == updated_at
-            """
-            if key == "created_at":
-                value = d.datetime.strptime(value,
-                                            '%Y-%m-%dT%H:%M:%S.%f')
-            if key == "updated_at":
-                value = d.datetime.strptime(value,
-                                            '%Y-%m-%dT%H:%M:%S.%f')
+                        setattr(self, key, value)
         else:
             self.id = str(u.uuid4())
             self.created_at = d.datetime.now()

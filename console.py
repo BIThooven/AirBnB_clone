@@ -164,6 +164,6 @@ class HBNBCommand(cmd.Cmd):
             print(instance_num)
 
 
-if __name__ == ":__main__":
+if __name__ == "__main__":
     """infinite loop"""
     HBNBCommand().cmdloop()
