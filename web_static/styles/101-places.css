@@ -134,7 +134,7 @@ article .amenities ul{
 	padding-left: 0;
 }
 
-.pet {
+.pet{
 	margin: 0;
 	padding: 0px 0 0px 25px;
 	list-style: none;
@@ -144,7 +144,7 @@ article .amenities ul{
 	background-size: 20px;
 }
 
-.tv {
+.tv{
 	margin: 0;
 	padding: 0px 0 0px 25px;
 	list-style: none;
@@ -154,7 +154,7 @@ article .amenities ul{
 	background-size: 20px;
 }
 
-.wifi {
+.wifi{
 	margin: 0;
 	padding: 0px 0px 0px 25px;
 	list-style: none;
@@ -166,4 +166,11 @@ article .amenities ul{
 
 article .amenities li{
 	margin-bottom: 10px;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
